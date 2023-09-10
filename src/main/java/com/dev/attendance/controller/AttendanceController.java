@@ -19,6 +19,11 @@ public class AttendanceController {
 	
 	@Autowired
 	private AttendanceService attendanceService;
+	
+	@GetMapping("/health")
+	public String isWorking() {
+		return "It works";
+	}
 
 	@PostMapping("/attendance/batch/{batchNumber}")
 	public List<Attendance> addAttendance(@RequestBody List<Attendance> attendanceList,
