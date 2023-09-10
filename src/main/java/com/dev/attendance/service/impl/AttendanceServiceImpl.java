@@ -76,10 +76,10 @@ public class AttendanceServiceImpl implements AttendanceService{
 	}
 
 	@Override
-	public List<Attendance> getAttendanceByDate(String attendanceDate) {
+	public List<Attendance> getAttendanceByDateandBatch(String attendanceDate, Integer batchNumber) {
 		System.out.println("In getAttendanceByDate");
 		System.out.println("received date: " + attendanceDate);
-		List<Attendance> attendanceList = attendanceRepository.findByAttendanceDate(attendanceDate);
+		List<Attendance> attendanceList = attendanceRepository.findByAttendanceDateAndBatch(attendanceDate, batchNumber);
 		System.out.println(attendanceList);
 		return attendanceList;
 	}

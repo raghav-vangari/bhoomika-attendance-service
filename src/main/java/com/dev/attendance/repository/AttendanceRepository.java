@@ -9,4 +9,5 @@ import com.dev.attendance.models.Attendance;
 public interface AttendanceRepository extends MongoRepository<Attendance, Integer>{
 
 	public List<Attendance> findByAttendanceDate(String attendanceDate);
+	public List<Attendance> findByAttendanceDateAndBatch(String attendanceDate, Integer batch);
 }

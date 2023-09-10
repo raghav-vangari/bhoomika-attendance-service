@@ -7,5 +7,5 @@ import com.dev.attendance.models.Attendance;
 public interface AttendanceService {
 
 	public List<Attendance> addAttendance(List<Attendance> attendanceList, Integer batchNumber);
-	public List<Attendance> getAttendanceByDate(String attendanceDate);
+	public List<Attendance> getAttendanceByDateandBatch(String attendanceDate, Integer batchNumber);
 }

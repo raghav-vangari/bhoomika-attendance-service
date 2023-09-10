@@ -27,8 +27,8 @@ public class AttendanceController {
 		
 	}
 	
-	@GetMapping("/attendance/{attendanceDate}")
-	public List<Attendance> getAttendanceByDate(@PathVariable String attendanceDate) {
-		return attendanceService.getAttendanceByDate(attendanceDate);
-	}
+	@GetMapping("/attendance/{attendanceDate}/batch/{batchNumber}")
+	public List<Attendance> getAttendanceByDateandBatch(@PathVariable String attendanceDate, @PathVariable Integer batchNumber) {
+		return attendanceService.getAttendanceByDateandBatch(attendanceDate, batchNumber);
+	} 
 }
