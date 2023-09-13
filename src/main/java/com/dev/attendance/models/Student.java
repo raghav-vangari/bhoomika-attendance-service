@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 public class Student {
 
 	@Id
-	private String id;
+	private Integer id;
 	
 	@Field
 	private Integer batchNumber;
@@ -29,7 +29,7 @@ public class Student {
 	
 	public Student() {}
 	
-	public Student(String id, Integer batchNumber, String firstName, String lastName, Integer deposit, Integer balance, String email,
+	public Student(Integer id, Integer batchNumber, String firstName, String lastName, Integer deposit, Integer balance, String email,
 			String mobile, String address) {
 		super();
 		this.id = id;
@@ -43,10 +43,10 @@ public class Student {
 		this.address = address;
 	}
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getFirstName() {

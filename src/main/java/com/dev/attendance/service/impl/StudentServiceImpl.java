@@ -45,8 +45,8 @@ public class StudentServiceImpl implements StudentService {
 			batchRepository.save(newBatch);
 			System.out.println("Batch saved successfully");
 		}
-		String uniqueID = UUID.randomUUID().toString();
-		student.setId(uniqueID);
+//		String uniqueID = UUID.randomUUID().toString();
+//		student.setId(uniqueID);
 		Student response = studentRepository.save(student);
 		return response;
 	}

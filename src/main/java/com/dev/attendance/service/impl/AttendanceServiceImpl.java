@@ -37,20 +37,19 @@ public class AttendanceServiceImpl implements AttendanceService{
 			attendance.setSubmitted(true);
 			Integer studentAttendingTimeInMinutes = convertBatchTimeToMin(attendance.getAttendingTime());
 			Integer attendDelay = studentAttendingTimeInMinutes - batchStartTimeInMinutes;
-			if(attendDelay >= 40) {
-				Optional<Student> opStudent = studentRepository.findById(attendance.getStudentId());
-				Student student = opStudent.get();
-				Integer deductFromBalance = 200;
+			if(attendance.getStatus().equals("Absent") || attendDelay >= 40) {
+				List<Student> students = studentRepository.findById(attendance.getStudentId());
+				Student student = students.get(0);
+				Integer deductFromBalance = student.getBalance() - 200;
 				System.out.println("Student is delayed*******");
 				System.out.println("Balance before deducting: " + student.getBalance());
 				System.out.println("Balance to be deducted: " + deductFromBalance);
 				student.setBalance(deductFromBalance);
 				Student updatedStudentBal = studentRepository.save(student);
 				System.out.println("Balance after updating: " + updatedStudentBal.getBalance());
-			}
-			if(attendDelay > 0) { 
-				Optional<Student> opStudent = studentRepository.findById(attendance.getStudentId());
-				Student student = opStudent.get();
+			} else if(attendDelay > 0) { 
+				List<Student> students = studentRepository.findById(attendance.getStudentId());
+				Student student = students.get(0);
 				Integer deductFromBalance = student.getBalance() - (attendDelay * 5);
 				System.out.println("Student is delayed*******");
 				System.out.println("Balance before deducting: " + student.getBalance());

@@ -8,5 +8,6 @@ import org.springframework.stereotype.Repository;
 import com.dev.attendance.models.Student;
 
 public interface StudentRepository extends MongoRepository<Student, String>{
+	public List<Student> findById(Integer studentId);
 	public List<Student> findByBatchNumber(Integer batchNumber);
 }

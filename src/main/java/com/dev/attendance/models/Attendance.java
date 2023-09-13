@@ -15,7 +15,7 @@ public class Attendance {
 	@Field
 	private String attendingTime;
 	@Field
-	private String studentId;
+	private Integer studentId;
 	@Field
 	private String status;
 	@Field
@@ -32,7 +32,7 @@ public class Attendance {
 	
 	public Attendance() {}
 
-	public Attendance(String id, String attendanceDate, String attendingTime, String studentId, String status,
+	public Attendance(String id, String attendanceDate, String attendingTime, Integer studentId, String status,
 			Boolean submitted, String studentName, Boolean toggle, Boolean toSubmit, Integer batch) {
 		super();
 		this.id = id;
@@ -105,10 +105,10 @@ public class Attendance {
 	public void setAttendingTime(String attendingTime) {
 		this.attendingTime = attendingTime;
 	}
-	public String getStudentId() {
+	public Integer getStudentId() {
 		return studentId;
 	}
-	public void setStudentId(String studentId) {
+	public void setStudentId(Integer studentId) {
 		this.studentId = studentId;
 	}
 	public String getStatus() {
